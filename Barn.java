@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
+import static pl.akademiakodu.Statements.*;
 
 
 public class Barn{
@@ -79,7 +80,7 @@ public class Barn{
                     break;
                 }
             default:
-                System.out.println("Please input a number (1-4)");
+                inputRightNumber();
                 choiceBarnToAdd(kind, sc);
         }
 
@@ -120,7 +121,7 @@ public class Barn{
                     barnIsRemovedInfo();
                 }
             default:
-                System.out.println("Please input a number (1-4)");
+                inputRightNumber();
                 choiceBarnToRemove(kind2, sc);
         }
     }

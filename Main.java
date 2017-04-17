@@ -3,6 +3,7 @@ package pl.akademiakodu;
 import java.util.*;
 import static pl.akademiakodu.Animal.*;
 import static pl.akademiakodu.Barn.*;
+import static pl.akademiakodu.Statements.*;
 
 
 public class Main {
@@ -15,7 +16,7 @@ public class Main {
         do {
             Menu.showMainMenu();
             System.out.println();
-            System.out.print("Please choice the one of options: ");
+            oneOfOptions();
             System.out.println();
 
             Scanner sc = new Scanner(System.in);
@@ -28,7 +29,7 @@ public class Main {
                 case 1:
                     Menu.showMenuWithBarns();
                     System.out.println();
-                    System.out.print("Please choice a kind of barn: ");
+                    oneOfOptions();
                     System.out.println();
                     byte kind = 0;
                     choiceBarnToAdd(kind,sc);
@@ -37,7 +38,7 @@ public class Main {
                 case 2:
                     Menu.showMenuWithBarns();
                     System.out.println();
-                    System.out.print("Please choice a kind of barn: ");
+                    oneOfOptions();
                     System.out.println();
                     byte kind2 = 0;
                     choiceBarnToRemove(kind2,sc);
@@ -55,12 +56,12 @@ public class Main {
                 case 4:
                     Menu.showMenuWithBarns();
                     System.out.println();
-                    System.out.print("Choice the barn, in which your animal is living:");
+                    oneOfOptions();
                     byte stable = 0;
                     try {
                         stable = sc.nextByte();
                     } catch(InputMismatchException e) {
-                        System.out.println("Please input the right number(1-4)!!!");
+                        inputRightNumber();
                         stable = sc.nextByte();
                     }
                     animal.removeAnimal(stable,sc);
@@ -87,7 +88,7 @@ public class Main {
                 case 8:
                     break;
                 default:
-                    System.out.println("Please input a number (1-9)");
+                    inputRightNumber();
                     System.out.println();
             }
         } while (number != 8);

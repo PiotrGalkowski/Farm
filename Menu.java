@@ -2,6 +2,7 @@ package pl.akademiakodu;
 
 import java.util.List;
 import static pl.akademiakodu.Barn.*;
+import static pl.akademiakodu.Statements.*;
 
 public class Menu{
     public static void showMainMenu() {
@@ -70,7 +71,7 @@ public class Menu{
                 showListOfAnimals(sheeps);
                 break;
             default:
-                System.out.println("Please input the right number(1-4)");
+                inputRightNumber();
                 break;
         }
     }

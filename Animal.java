@@ -5,6 +5,7 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 import static pl.akademiakodu.Barn.*;
+import static pl.akademiakodu.Statements.*;
 
 @Data
 public class Animal {
@@ -20,9 +21,6 @@ public class Animal {
         this.name = name;
         this.age = age;
         numberOfAnimals++;
-    }
-
-    public Animal() {
     }
 
     public String inputName(Scanner sc) {
@@ -51,7 +49,7 @@ public class Animal {
         try {
             species = sc.nextByte();
         } catch (InputMismatchException e) {
-            System.out.println("Please input the right number(1-7)");
+            inputRightNumber();
             addAnimal(species, sc);
         }
         switch (species) {
@@ -112,7 +110,7 @@ public class Animal {
                     break;
                 }
             default:
-                System.out.println("Please input the right number (1-7)!!!!!!");
+                inputRightNumber();
                 addAnimal(species, sc);
         }
     }
@@ -120,12 +118,12 @@ public class Animal {
     public void removeAnimal(byte barn, Scanner sc) {
         Menu.showListOfAnimals(barn);
         System.out.println();
-        System.out.print("Choice the number of the animal: ");
+        inputRightNumber();
         int num = 0;
         try {
             num = sc.nextInt();
         } catch (InputMismatchException e) {
-            System.out.println("Please input the right number!!!");
+            inputRightNumber();
             num = sc.nextInt();
         }
         switch (barn) {
@@ -166,7 +164,7 @@ public class Animal {
                 break;
 
             default:
-                System.out.println("Input the right number(1-4)!!!");
+                inputRightNumber();
                 removeAnimal(barn, sc);
         }
     }
